@@ -23,17 +23,19 @@ public class Person {
 
     // Data fields
     private final Set<Module> modules = new HashSet<>();
+    private final Remark remark;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Gender gender, Set<Module> modules, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Gender gender, Remark remark, Set<Module> modules, Set<Tag> tags) {
         requireAllNonNull(name, phone, gender, modules, tags);
         this.name = name;
         this.phone = phone;
         this.modules.addAll(modules);
         this.tags.addAll(tags);
+        this.remark = remark;
         this.gender = gender;
     }
 
@@ -47,6 +49,10 @@ public class Person {
 
     public Gender getGender() {
         return gender;
+    }
+
+    public Remark getRemark() {
+        return remark;
     }
 
     public Set<Module> getModules() {
@@ -109,6 +115,7 @@ public class Person {
                 .add("phone", phone)
                 .add("gender", gender)
                 .add("modules", modules)
+                .add("remark", remark)
                 .add("tags", tags)
                 .toString();
     }

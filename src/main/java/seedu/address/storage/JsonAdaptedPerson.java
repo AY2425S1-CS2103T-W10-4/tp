@@ -15,6 +15,7 @@ import seedu.address.model.person.Module;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -27,6 +28,7 @@ class JsonAdaptedPerson {
     private final String name;
     private final String phone;
     private final String gender;
+    private final String remark;
     private final List<JsonAdaptedModule> modules = new ArrayList<>();
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
@@ -37,10 +39,12 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
                              @JsonProperty("gender") String gender,
                              @JsonProperty("modules") List<JsonAdaptedModule> modules,
+                             @JsonProperty("remark") String remark,
                              @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.phone = phone;
         this.gender = gender;
+        this.remark = remark;
         if (modules != null) {
             this.modules.addAll(modules);
         }
@@ -56,6 +60,7 @@ class JsonAdaptedPerson {
         name = source.getName().fullName;
         phone = source.getPhone().value;
         gender = source.getGender().gender;
+        remark = source.getRemark().value;
         modules.addAll(source.getModules().stream()
                 .map(module -> new JsonAdaptedModule(
                         module.getModule(),
@@ -97,6 +102,11 @@ class JsonAdaptedPerson {
         }
         final Phone modelPhone = new Phone(phone);
 
+        if (remark == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName()));
+        }
+        final Remark modelRemark = new Remark(remark);
+
         if (gender == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Gender.class.getSimpleName()));
         }
@@ -106,6 +116,6 @@ class JsonAdaptedPerson {
         final Gender modelGender = new Gender(gender);
         final Set<Module> modelModules = new HashSet<>(personModules);
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelGender, modelModules, modelTags);
+        return new Person(modelName, modelPhone, modelGender, modelRemark, modelModules, modelTags);
     }
 }

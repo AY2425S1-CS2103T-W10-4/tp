@@ -3,6 +3,7 @@
     "name": "Alice Pauline",
     "phone": "94351253",
     "gender": "female",
+    "remark": "",
     "modules" : [ {
       "module" : "MA1522",
       "grade" : 20
@@ -12,6 +13,7 @@
     "name": "Alice Pauline",
     "phone": "94351253",
     "gender": "female",
+    "remark": "",
     "modules" : [ {
       "module" : "MA1522",
       "grade" : 20

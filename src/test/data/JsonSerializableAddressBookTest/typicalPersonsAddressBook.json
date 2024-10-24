@@ -4,6 +4,7 @@
     "name" : "Alice Pauline",
     "phone" : "94351253",
     "gender": "female",
+    "remark": "She likes aardvarks.",
     "modules" : [ {
       "module" : "MA1522",
       "grade" : 0
@@ -13,6 +14,7 @@
     "name" : "Benson Meier",
     "phone" : "98765432",
     "gender": "male",
+    "remark": "Benson likes Amy",
     "modules" : [ {
       "module" : "MA1522",
       "grade" : 0
@@ -22,6 +24,7 @@
     "name" : "Carl Kurz",
     "phone" : "95352563",
     "gender": "male",
+    "remark": "",
     "modules" : [ {
       "module" : "EL1101",
       "grade" : 0
@@ -31,6 +34,7 @@
     "name" : "Daniel Meier",
     "phone" : "87652533",
     "gender": "male",
+    "remark": "",
     "modules" : [ {
       "module" : "CS1101",
       "grade" : 0
@@ -40,6 +44,7 @@
     "name" : "Elle Meyer",
     "phone" : "9482224",
     "gender": "female",
+    "remark": "",
     "modules" : [ {
       "module" : "MA1522",
       "grade" : 0
@@ -49,6 +54,7 @@
     "name" : "Fiona Kunz",
     "phone" : "9482427",
     "gender": "female",
+    "remark": "",
     "modules" : [ {
       "module" : "MA1522",
       "grade" : 0
@@ -58,6 +64,7 @@
     "name" : "George Best",
     "phone" : "9482442",
     "gender": "male",
+    "remark": "",
     "modules" : [ {
       "module" : "EL1101",
       "grade" : 0

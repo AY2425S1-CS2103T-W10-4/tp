@@ -44,6 +44,8 @@ public class PersonCard extends UiPart<Region> {
     private FlowPane modules;
     @FXML
     private FlowPane grades;
+    @FXML
+    private Label remark;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -55,6 +57,7 @@ public class PersonCard extends UiPart<Region> {
         name.setText(person.getName().fullName);
         gender.setText(person.getGender().getGenderWithSymbol());
         phone.setText(person.getPhone().value);
+        remark.setText(person.getRemark().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
@@ -63,7 +66,7 @@ public class PersonCard extends UiPart<Region> {
                 .forEach(moduleCode -> {
                     Label moduleLabel = new Label(moduleCode.module);
                     modules.getChildren().add(moduleLabel);
-                    Label gradeLabel = new Label("(" + moduleCode.getGrade() + ")");
+                    Label gradeLabel = new Label(moduleCode.getGrade());
                     grades.getChildren().add(gradeLabel);
                 });
         gender.textFillProperty().bind(
